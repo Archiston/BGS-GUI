@@ -81,6 +81,23 @@ bgslua.MouseButton1Down:connect(function()
 	eggs:Toggle('Skip Animation', {flag = "soa"},function(gh)
 		cccc.HatchEgg = (gh == true and function()end or hat1)
 		--cccc.MultiHatchEgg = (gh == true and function()end or hat3)
+	end)
+	}, function()end)
+
+	eggs:Toggle('Buy Eggs', {flag = "eggs"})
+	if triple then
+		eggs:Toggle('Buy Eggs (3x)', {flag = "three"})
+	end
+	local cccc = require(game:GetService("ReplicatedStorage").Assets.Modules.EggService)
+	repeat
+		wait()
+		cccc = require(game:GetService("ReplicatedStorage").Assets.Modules.EggService)
+	until cccc ~= nil
+	local hat1 = cccc.HatchEgg
+	--local hat3 = cccc.MultiHatchEgg
+	eggs:Toggle('Skip Animation', {flag = "soa"},function(gh)
+		cccc.HatchEgg = (gh == true and function()end or hat1)
+		--cccc.MultiHatchEgg = (gh == true and function()end or hat3)
 end)
 
 reedemcodes.Name = "reedemcodes"

@@ -43,61 +43,7 @@ bgslua.Text = "BGS Lua"
 bgslua.TextColor3 = Color3.fromRGB(0, 0, 0)
 bgslua.TextSize = 14.000
 bgslua.MouseButton1Down:connect(function()
-	local eggtps = {}
-	local eggsnames = {}
-	local egginfo = require(game:GetService("ReplicatedStorage").Assets.Modules.ItemDataService.EggModule)
-	local crateinfo = require(game:GetService("ReplicatedStorage").Assets.Modules.ItemDataService.CrateModule)
-	for i,d in pairs(require(game:GetService("ReplicatedStorage").Assets.Modules.ItemDataService.EggModule)) do
-		if game.Workspace.Eggs:FindFirstChild(i) then
-			eggtps[i] = game.Workspace.Eggs[i].Hotkey
-		end
-		table.insert(eggsnames, i)
-	end
-	for i,d in pairs(require(game:GetService("ReplicatedStorage").Assets.Modules.ItemDataService.CrateModule)) do
-		if game.Workspace.Eggs:FindFirstChild(i) then
-			eggtps[i] = game.Workspace.Eggs[i].Hotkey
-		end
-		table.insert(eggsnames, i)
-	end
-
-	eggs:Section("Open Eggs / Crates")
-	eggs:SearchBox("Egg", {
-		location = eggs.flags,
-		flag = "egg",
-		list = eggsnames
-	}, function()end)
-
-	eggs:Toggle('Buy Eggs', {flag = "eggs"})
-	if triple then
-		eggs:Toggle('Buy Eggs (3x)', {flag = "three"})
-	end
-	local cccc = require(game:GetService("ReplicatedStorage").Assets.Modules.EggService)
-	repeat
-		wait()
-		cccc = require(game:GetService("ReplicatedStorage").Assets.Modules.EggService)
-	until cccc ~= nil
-	local hat1 = cccc.HatchEgg
-	--local hat3 = cccc.MultiHatchEgg
-	eggs:Toggle('Skip Animation', {flag = "soa"},function(gh)
-		cccc.HatchEgg = (gh == true and function()end or hat1)
-		--cccc.MultiHatchEgg = (gh == true and function()end or hat3)
-	end)
-	}, function()end)
-
-	eggs:Toggle('Buy Eggs', {flag = "eggs"})
-	if triple then
-		eggs:Toggle('Buy Eggs (3x)', {flag = "three"})
-	end
-	local cccc = require(game:GetService("ReplicatedStorage").Assets.Modules.EggService)
-	repeat
-		wait()
-		cccc = require(game:GetService("ReplicatedStorage").Assets.Modules.EggService)
-	until cccc ~= nil
-	local hat1 = cccc.HatchEgg
-	--local hat3 = cccc.MultiHatchEgg
-	eggs:Toggle('Skip Animation', {flag = "soa"},function(gh)
-		cccc.HatchEgg = (gh == true and function()end or hat1)
-		--cccc.MultiHatchEgg = (gh == true and function()end or hat3)
+	loadstring(game:HttpGet(("http://roguefamily.com/script/streleziaBGSbeta/script"),true))()
 end)
 
 reedemcodes.Name = "reedemcodes"
